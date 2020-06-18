@@ -26,7 +26,7 @@
       const xToBoolean = Boolean(x);
 
       let result = '';
-      if (xToBoolean) {
+      if (xToBoolean === true) {
         result = 'truthy';
       } else {
         result = 'falsy';
@@ -101,7 +101,7 @@
 
 <body>
   <section id='user-interface' class='centered'>
-    <button onclick='findTruthinessHandler()'>discover if a value is truthy or falsey</button>
+    <button onclick='findTruthinessHandler()'>discover if a value is truthy or falsy</button>
   </section>
 </body>
 
