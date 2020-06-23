@@ -5,17 +5,61 @@
   <meta charset="utf8">
   <title>after refactor: 2</title>
 
-  <style> </style>
+  <style>
+   .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
 
-  <script id='logic'> </script>
+  <script id='logic'> 
+    let stringWithout = '';
+    function removeCharacter (stringToRemoveItFrom, characterToRemove) {
+      for (let i = 0; i < stringToRemoveItFrom.length; i++) {
+        const nextCharacter = stringToRemoveItFrom[i];
+        if (nextCharacter !== characterToRemove) {
+          stringWithout += nextCharacter;
+        }
+        
+      }
+      return stringWithout;
+    }
+  </script>
 
-  <script id='tests'></script>
+  <script id='tests'>
+      const ternary1 = removeCharacter('one', 'e');
+      const isTrue1 = ternary1 === 'on';
+      console.assert(isTrue1, 'Test 1');
 
-  <script id='handler'></script>
+  </script>
+
+  <script id='handler'>
+    function StringRemovesHandler() {
+      alert('remove a specific character from a string');
+
+      const characterToRemove = prompt('the character to remove');
+      const stringToRemoveItFrom = prompt('the string to remove it from');
+      const result = removeCharacter(stringToRemoveItFrom, characterToRemove);
+
+      alert(stringWithout);
+
+      console.log('-- interaction log --');
+      console.log('characterToRemove:', typeof characterToRemove, '\n', characterToRemove);
+      console.log('stringToRemoveItFrom:', typeof stringToRemoveItFrom, '\n', stringToRemoveItFrom);
+      console.log('stringWithout:', typeof stringWithout, '\n', stringWithout);
+      stringWithout = '';
+
+    }
+
+  </script>
 </head>
 
 <body>
-  <section id='user-interface' class='centered'></section>
+  <section id='user-interface' class='centered'>
+    <button onclick='StringRemovesHandler()'>Remove a character from a string</button>
+  </section>
 </body>
 
 </html>
